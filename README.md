@@ -1,8 +1,9 @@
 # vocab-editor
 
 
-## Mockup
+## Mockups
 ![mockup](assets/vocab-editor-mockup.png)
+![mockup-2](assets/vocab-editor-mockup-2.png)
 
 
 ## Install
