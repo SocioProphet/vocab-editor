@@ -1,2 +1,3 @@
 # vocab-editor
-an ontology editor
+
+![mockup](assets/vocab-editor-mockup.png)

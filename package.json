@@ -1,0 +1,29 @@
+{
+  "name": "vocab-editor",
+  "version": "0.1.0",
+  "description": "an ontology editor",
+  "main": "index.js",
+  "dependencies": {
+    "budo": "^9.4.1",
+    "choo": "^4.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "budo src/index.js --live",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unbinding-org/vocab-editor.git"
+  },
+  "keywords": [
+    "semantic",
+    "web"
+  ],
+  "author": "kareniel",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/unbinding-org/vocab-editor/issues"
+  },
+  "homepage": "https://github.com/unbinding-org/vocab-editor#readme"
+}
