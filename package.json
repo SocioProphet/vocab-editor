@@ -5,11 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "budo": "^9.4.1",
-    "choo": "^4.0.3"
+    "choo": "^4.0.3",
+    "sheetify": "^6.0.1",
+    "xhr": "^2.3.3"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "budo src/index.js --live",
+    "start": "budo src/index.js --live --css src/style.css -- -t sheetify/transform",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

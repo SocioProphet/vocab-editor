@@ -1,16 +1,18 @@
 const html = require('choo/html')
-const nav = require('./views/nav')
+const nav = require('./views/nav.view')
+const sidebar = require('./views/sidebar.view')
+const content = require('./views/content.view')
 
-module.exports = function view () {
+module.exports = function view (state, prev, send) {
   return html`
-    <div>
-      ${nav()}
+    <div id='app'>
+      <header>
+        ${nav(state, prev, send)}
+      </header>
+
       <main>
-        <h2>label</h2>
-        <ul>
-          <li></li>
-          <li><a href="#">+ Add a statement about this resource</a></li>
-        </ul>
+        ${sidebar(state, prev, send)}
+        ${content(state, prev, send)}
       </main>
     </div>
   `

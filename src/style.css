@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0.5em;
+}
+
+#app {
+  font-family: sans-serif;
+  height: 100%;
+  --blue: rgb(33, 122, 192);
+  --dark-blue: rgb(3, 102, 162);
+}
+
+header {
+  width: 100%;
+}
+
+header > nav {
+  text-align: right;
+}
+
+main {
+  display: flex;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+}
+
+ul {
+  list-style: none;
+}
+
+button, .btn {
+  padding: 0.5em 1em;
+  background-color: var(--blue);
+  border: none;
+  color: white;
+  font-size: 1em;
+  font-weight: 100;
+}
+
+button:hover, .btn:hover {
+  background-color: var(--dark-blue);
+}
