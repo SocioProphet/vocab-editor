@@ -6,7 +6,14 @@ module.exports = (state, prev, send) => {
     <nav>
       <h2>classes</h2>
       <ul>
-        <li>{class}</li>
+        ${state.classes.map(c => html`
+          <li>
+            <a href=${`/${c.subject}`}>${c.subject}</a>
+            <button onclick=${e => send('delClass', c)}>
+              x
+            </button>
+          </li>
+        `)}
       </ul>
 
       <h2>properties</h2>

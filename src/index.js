@@ -5,7 +5,10 @@ const view = require('./view')
 const app = choo()
 
 app.model(model)
-app.router(['/', view])
+app.router({default: '/'}, [
+  ['/', view],
+  ['/:resource', view]
+])
 
 const tree = app.start()
 
