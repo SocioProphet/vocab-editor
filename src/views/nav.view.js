@@ -1,13 +1,15 @@
 const html = require('choo/html')
+const quickSearch = require('./quickSearch')
 
 module.exports = (state, prev, send) => {
   return html`
     <nav>
+      ${quickSearch(state, prev, send)}
       <form>
-      <input id='subject' type='text' placeholder='subject'>
-      <input id='predicate' type='text' placeholder='predicate'>
-      <input id='object' type='text' placeholder='object'>
-      <button onclick=${handleForm}>+</button>
+        <input id='subject' type='text' placeholder='subject'>
+        <input id='predicate' type='text' placeholder='predicate'>
+        <input id='object' type='text' placeholder='object'>
+        <button onclick=${handleForm}>+</button>
       </form>
     </nav>
   `

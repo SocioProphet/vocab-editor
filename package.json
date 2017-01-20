@@ -6,6 +6,7 @@
   "dependencies": {
     "budo": "^9.4.1",
     "choo": "^4.0.3",
+    "fuzzysearch": "^1.0.3",
     "level-browserify": "^1.1.0",
     "levelgraph": "^2.0.0",
     "sheetify": "^6.0.1",

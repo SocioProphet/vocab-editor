@@ -2,9 +2,11 @@ const html = require('choo/html')
 const level = require('level-browserify')
 const levelgraph = require('levelgraph')
 const db = levelgraph(level('test'))
+const FuzzySearch = require('./lib/FuzzySearch')
 
 module.exports = {
   state: {
+    results: [],
     selected: null,
     classes: [],
     properties: [],
@@ -12,10 +14,8 @@ module.exports = {
     imports: []
   },
   reducers: {
-    select: (state, data) => {
-      return {
-        selected: data
-      }
+    update: (state, data) => {
+      return data
     },
     add: (state, data) => {
       console.log(data)
@@ -52,28 +52,37 @@ module.exports = {
     }
   },
   effects: {
+    search: (state, data, send, done) => {
+      db.get({}, (err, graph) => {
+        const searcher = new FuzzySearch({
+          source: graph,
+          keys: ['subject'],
+          highlight_before: '<span class="quick-search-hl">',
+          highlight_after: '</span>'
+        })
+        let results = searcher.search(data)
+        if (results.length) {
+          results = results.map(result => {
+            Object.keys(result).forEach(key => {
+              result[key] = searcher.highlight(result[key])
+            })
+            return result
+          })
+        }
+        send('update', {results}, done)
+      })
+    },
     handleRouteChange: (state, data, send, done) => {
       if (data.resource) {
-        send('get', {subject: data.resource}, (err, graph) => {
-          send('select', graph, done)
+        db.get(data, (err, graph) => {
+          send('update', {select: graph}, done)
         })
       }
-    },
-    get: (state, data, send, done) => {
-      db.get(data, (err, graph) => {
-        done(err, graph)
-      })
     },
     put: (state, data, send, done) => {
       db.put(data, err => {
         if (err) return console.error(err)
         send('add', data, done)
-      })
-    },
-    del: (state, data, send, done) => {
-      db.del(data, err => {
-        if (err) return console.error(err)
-        send('remove', data, done)
       })
     },
     delClass: (state, data, send, done) => {

@@ -14,8 +14,57 @@ header {
   width: 100%;
 }
 
-header > nav {
+header > nav > form {
   text-align: right;
+}
+
+#quick-search {
+  width: 20em;
+  position: relative;
+}
+
+#quick-search > input {
+  margin: 0;
+  width: 100%;
+  height: 1.5em;
+}
+
+#quick-search > ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: absolute;
+  border: 1px solid grey;
+  background-color: white;
+  top: 1.5em;
+  z-index: 500;
+}
+
+#quick-search button {
+  text-align: left;
+  margin: 0;
+  width: 100%;
+  color: black;
+  background-color: white;
+}
+
+#quick-search button:hover {
+  background-color: rgba(0,0,0,0.05);
+  color: black;
+}
+
+span.quick-search-result-segment {
+  /* removes the space between spans */
+  display: flex;
+}
+
+span.quick-search-result-segment span {
+
+}
+
+span.quick-search-hl {
+  /*background-color: yellow;*/
+  font-weight: bold;
 }
 
 main {

@@ -1,8 +1,10 @@
 const html = require('choo/html')
 
 module.exports = (state, prev, send) => {
-  if (prev && prev.location.params !== state.location.params) {
-    send('handleRouteChange', state.location.params)
+  if (prev) {
+    if (prev & prev.location.params.resource !== state.location.params.resource) {
+      send('handleRouteChange', state.location.params)
+    }
   }
 
   if (!state.selected || !state.selected) {
